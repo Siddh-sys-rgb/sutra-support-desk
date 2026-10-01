@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ef654d">
+  <title>Sutra · Support that stays connected</title>
+  <link rel="icon" href="/static/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="#all" class="brand" aria-label="Sutra inbox"><img src="/static/mark.svg" alt=""><span>sutra<span class="brand-dot">.</span></span></a>
+    <div class="workspace"><span class="store-icon">A</span><div><strong>Aangan Online</strong><small>Customer care workspace</small></div></div>
+    <p class="nav-title">WORKSPACE</p>
+    <nav aria-label="Inbox queues">
+      <a href="#all" data-queue="all"><span>All conversations</span><b id="count-all">—</b></a>
+      <a href="#review" data-queue="review"><span>Human review</span><b id="count-review">—</b></a>
+      <a href="#open" data-queue="open"><span>Open tickets</span><b id="count-open">—</b></a>
+      <a href="#in_progress" data-queue="in_progress"><span>In progress</span><b id="count-progress">—</b></a>
+      <a href="#resolved" data-queue="resolved"><span>Resolved</span><b id="count-resolved">—</b></a>
+    </nav>
+    <div class="model-note"><span class="online-dot"></span> LOCAL MODEL<br><strong>A suggestion, with a reason.</strong><p>Uncertain tickets wait for a teammate. Your corrections stay in the history.</p></div>
+    <div class="identity"><span class="avatar coral">KJ</span><div><strong>Kavya Joshi</strong><small>Support teammate · demo</small></div></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><span class="breadcrumb">AANGAN / CUSTOMER CARE</span><p>Good conversations start with clarity.</p></div><button class="primary" data-create>＋ New ticket</button></header>
+    <section id="inbox-view">
+      <div class="page-title"><div><p class="eyebrow">ONE INBOX. A LITTLE LESS GUESSWORK.</p><h1 id="queue-heading">Every conversation,<br><span>connected.</span></h1><p class="lede">Know what needs a reply, what needs a review,<br class="desktop-break"> and what might already have an answer.</p></div><div class="hero-orbit" aria-hidden="true"><span class="orbit-one"></span><span class="orbit-two"></span><span class="orbit-three"></span><span class="orbit-label">Listen.<br>Understand.<br>Connect.</span></div></div>
+      <div class="stats" aria-label="Inbox summary"><div><strong id="metric-open">—</strong><span>Open conversations</span></div><div><strong id="metric-review">—</strong><span>Waiting for a human</span></div><div><strong id="metric-progress">—</strong><span>Being worked on</span></div><div><strong id="metric-resolved">—</strong><span>Resolved with care</span></div></div>
+      <section class="inbox-panel" aria-label="Conversations">
+        <div class="panel-toolbar"><div><h2 id="list-heading">All conversations</h2><span id="result-count">Loading tickets…</span></div><label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" maxlength="120" placeholder="Search name or conversation" aria-label="Search conversations"></label></div>
+        <div class="list-columns" aria-hidden="true"><span>CONVERSATION</span><span>ROUTING</span><span>STATUS</span></div>
+        <div id="ticket-list" aria-live="polite"></div>
+      </section>
+      <div class="bottom-note"><span class="online-dot"></span><p>Runs locally. No external AI service. English-only model trained on 72 original fictional examples.</p></div>
+    </section>
+    <section id="detail-view" hidden>
+      <a class="back-link" href="#all">← Back to conversations</a>
+      <div class="detail-heading"><div><p class="eyebrow" id="ticket-reference">CONVERSATION</p><h1 id="detail-title">Loading…</h1></div><span id="detail-status" class="badge">—</span></div>
+      <div id="detail-content" class="detail-grid" hidden>
+        <div class="conversation-column">
+          <article class="conversation-card"><div class="customer-header"><span class="avatar" id="customer-avatar"></span><div><h2 id="customer-name"></h2><p id="customer-contact"></p></div><time id="created-time"></time></div><div class="message" id="ticket-message"></div><div class="conversation-footer"><span>Original customer message</span><span>Fictional shop workspace</span></div></article>
+          <section class="related-card"><div class="section-heading"><div><p class="eyebrow">CONNECT THE DOTS</p><h2>Possibly related conversations</h2></div><span class="tag">Read-only suggestions</span></div><p class="help">Text similarity can surface a repeated issue. Check both conversations before treating them as duplicates.</p><div id="related-list"></div></section>
+          <section class="history-card"><p class="eyebrow">THE PAPER TRAIL</p><h2>Conversation history</h2><ol id="history-list"></ol></section>
+        </div>
+        <div class="review-column">
+          <section class="model-card"><div class="model-card-top"><span class="model-symbol">✳</span><span>LOCAL TRIAGE</span><span id="review-pill" class="pill"></span></div><h2 id="predicted-label"></h2><div class="confidence"><strong id="score"></strong><span>model score<br><small>not a calibrated probability</small></span></div><p id="model-reason"></p><div class="probabilities" id="probabilities"></div><p class="tiny-title">TEXT FEATURES CONTRIBUTING TO THIS SUGGESTION</p><div id="evidence" class="chips"></div><details><summary>How this suggestion works</summary><p>A TF-IDF text vector and a learned logistic regression model compare six shop-support intents. Scores below 58% or close alternatives trigger review. This small synthetic dataset does not establish real-world accuracy. Corrections are saved as history and do not automatically retrain the model.</p></details></section>
+          <form id="review-form" class="routing-card"><p class="eyebrow">YOU HAVE THE FINAL SAY</p><h2>Review & route</h2><label>Routing intent<select id="intent" required></select></label><div class="form-row"><label>Priority<select id="priority"><option value="low">Low</option><option value="normal">Normal</option><option value="high">High</option></select></label><label>Status<select id="status"><option value="open">Open</option><option value="in_progress">In progress</option><option value="resolved">Resolved</option></select></label></div><label>Assigned teammate<select id="assignee"></select></label><label class="checkbox-label"><input type="checkbox" id="reviewed"><span>I checked the message and confirm this routing intent.</span></label><p class="help">Start work before resolving. Resolution requires a routing intent and a teammate.</p><p id="review-error" class="form-error" role="alert"></p><button type="submit" class="primary wide" id="save-review">Save changes</button><p class="revision-note" id="revision-note"></p></form>
+        </div>
+      </div>
+    </section>
+    <footer>Built for a fictional Indian online shop. Local demo · no email is sent.</footer>
+  </main>
+  <dialog id="create-dialog">
+    <form id="create-form"><div class="dialog-heading"><div><p class="eyebrow">ADD A CONVERSATION</p><h2>Let’s hear them out.</h2></div><button type="button" id="close-dialog" class="icon-button" aria-label="Close new ticket">×</button></div><p class="help">The local model will suggest an intent and flag uncertainty. All fields remain in this workspace.</p><div class="form-row"><label>Customer name<input id="new-customer" maxlength="80" required placeholder="e.g. Aarav Desai"></label><label>Email (optional)<input id="new-email" type="email" maxlength="160" placeholder="aarav@example.test"></label></div><label>Subject<input id="new-subject" maxlength="140" required placeholder="A short summary of the issue"></label><label>Customer message<textarea id="new-message" maxlength="4000" rows="6" required placeholder="Paste or write the customer’s message in English"></textarea></label><label>Priority<select id="new-priority"><option value="normal">Normal</option><option value="low">Low</option><option value="high">High</option></select></label><p id="create-error" class="form-error" role="alert"></p><button type="submit" id="create-submit" class="primary wide">Create & run local triage</button><p class="revision-note">No reply is sent. This is an internal support demo.</p></form>
+  </dialog>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
