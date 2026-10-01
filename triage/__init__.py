@@ -49,7 +49,7 @@ def edit_fields(body):
 
 def create_app(config=None):
     app = Flask(__name__, instance_path=str(ROOT / "instance"))
-    app.config.update(DATA_DIR=str(ROOT / "instance"), SEED_DEMO=True, MAX_CONTENT_LENGTH=32 * 1024, TRUSTED_HOSTS=["localhost", "127.0.0.1", "[::1]"], SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Strict")
+    app.config.update(DATA_DIR=str(ROOT / "instance"), SEED_DEMO=True, MAX_CONTENT_LENGTH=32 * 1024, TRUSTED_HOSTS=["localhost", "127.0.0.1", "[::1]"], SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Strict", SESSION_COOKIE_NAME="sutra_session")
     if config:
         app.config.update(config)
     directory = Path(app.config["DATA_DIR"])
