@@ -1,0 +1,362 @@
+[
+  {
+    "id": "train-delivery-01",
+    "text": "My delivery is late and the parcel has not arrived",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-02",
+    "text": "Track my order and tell me the delivery date",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-03",
+    "text": "The courier marked my package delivered but I did not receive it",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-04",
+    "text": "Where is my shipment tracking number",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-05",
+    "text": "My parcel is stuck in transit for three days",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-06",
+    "text": "The delivery driver could not find my address",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-07",
+    "text": "Please update the delivery address for my package",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-08",
+    "text": "My shipment arrived at the wrong address",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-09",
+    "text": "When will my order be delivered to Ahmedabad",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-10",
+    "text": "The parcel tracking link says delivery delayed",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-11",
+    "text": "My courier delivery is missing and tracking has not moved",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-delivery-12",
+    "text": "I need the shipping status of my package",
+    "intent": "delivery"
+  },
+  {
+    "id": "train-refund-01",
+    "text": "I returned my order and need my refund",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-02",
+    "text": "The refund has not reached my bank account",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-03",
+    "text": "Please refund the money for the returned item",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-04",
+    "text": "How long will my refund take after returning the product",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-05",
+    "text": "I received only a partial refund for my return",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-06",
+    "text": "My return is accepted but the refund is pending",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-07",
+    "text": "Send my refund to the original payment method",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-08",
+    "text": "Can I get my money back for this returned order",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-09",
+    "text": "I want to return this purchase and request a refund",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-10",
+    "text": "The refund amount for my returned shoes is incorrect",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-11",
+    "text": "My return pickup is done but the money has not been refunded",
+    "intent": "refund"
+  },
+  {
+    "id": "train-refund-12",
+    "text": "Please check the refund status of my returned parcel",
+    "intent": "refund"
+  },
+  {
+    "id": "train-cancellation-01",
+    "text": "Please cancel my order before it ships",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-02",
+    "text": "I placed the wrong order and want to cancel it",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-03",
+    "text": "Can I cancel my purchase today",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-04",
+    "text": "Cancel the duplicate order I placed by mistake",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-05",
+    "text": "I cannot find the order cancellation button",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-06",
+    "text": "Stop this order from being shipped and cancel it",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-07",
+    "text": "I no longer need the item please cancel the order",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-08",
+    "text": "My cancellation request is still pending",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-09",
+    "text": "Please confirm that my order has been cancelled",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-10",
+    "text": "I want to withdraw my order before dispatch",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-11",
+    "text": "Cancel my order because I selected the wrong size",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-cancellation-12",
+    "text": "I changed my mind and need to cancel this purchase",
+    "intent": "cancellation"
+  },
+  {
+    "id": "train-payment-01",
+    "text": "My UPI payment failed but money was debited",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-02",
+    "text": "I was charged twice for the same payment",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-03",
+    "text": "The checkout payment page shows an error",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-04",
+    "text": "My card payment was declined during checkout",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-05",
+    "text": "UPI says payment successful but the order is not confirmed",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-06",
+    "text": "I cannot pay with my debit card",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-07",
+    "text": "The payment transaction timed out and money left my account",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-08",
+    "text": "Cash on delivery is not available at checkout",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-09",
+    "text": "How can I change the payment method for my purchase",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-10",
+    "text": "My payment is pending in the UPI application",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-11",
+    "text": "I need an invoice for the payment transaction",
+    "intent": "payment"
+  },
+  {
+    "id": "train-payment-12",
+    "text": "The payment gateway is rejecting my card",
+    "intent": "payment"
+  },
+  {
+    "id": "train-product-01",
+    "text": "The product arrived damaged with a broken screen",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-02",
+    "text": "I received the wrong size and need a replacement",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-03",
+    "text": "The item is defective and does not work",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-04",
+    "text": "My package contains the wrong product",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-05",
+    "text": "The colour of the shirt is different from the listing",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-06",
+    "text": "One item is missing from the product box",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-07",
+    "text": "I need to exchange these shoes for a larger size",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-08",
+    "text": "The charger is broken and I want a replacement",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-09",
+    "text": "The product quality is poor and the material is torn",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-10",
+    "text": "The delivered item is faulty and needs an exchange",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-11",
+    "text": "The glass bottle was damaged and leaking when I opened it",
+    "intent": "product"
+  },
+  {
+    "id": "train-product-12",
+    "text": "I ordered blue but received a red product",
+    "intent": "product"
+  },
+  {
+    "id": "train-account-01",
+    "text": "I cannot log into my account",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-02",
+    "text": "Please help me reset my password",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-03",
+    "text": "The login OTP has not arrived on my phone",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-04",
+    "text": "I forgot my password and cannot sign in",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-05",
+    "text": "My account is locked after multiple login attempts",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-06",
+    "text": "How can I change my account email address",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-07",
+    "text": "The password reset link has expired",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-08",
+    "text": "I need help updating my profile phone number",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-09",
+    "text": "My login verification code is not working",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-10",
+    "text": "I cannot access my shopping account",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-11",
+    "text": "Please delete my account and personal profile",
+    "intent": "account"
+  },
+  {
+    "id": "train-account-12",
+    "text": "My account login says invalid password",
+    "intent": "account"
+  }
+]
