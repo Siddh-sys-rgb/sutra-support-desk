@@ -86,7 +86,7 @@ def create_app(config=None):
                 return jsonify(error="A same-origin request is required."), 403
             token = request.headers.get("X-CSRF-Token", "")
             expected = session.get("csrf", "")
-            if not expected or not secrets.compare_digest(token, expected):
+            if not expected or not secrets.compare_digest(token.encode("utf-8"), expected.encode("ascii")):
                 return jsonify(error="Session token missing or expired. Reload the page."), 403
 
     @app.after_request

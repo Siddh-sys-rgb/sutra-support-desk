@@ -107,7 +107,7 @@ function renderDetail(result) {
   $('#score').textContent = percent(prediction.score);
   $('#model-reason').textContent = `${prediction.reason}. Original prediction stays visible after human corrections.`;
   $('#review-pill').className = `pill ${ticket.review_required ? 'review' : 'clear'}`;
-  $('#review-pill').textContent = ticket.review_required ? 'Hold for review' : (prediction.review_required ? 'Human reviewed' : 'Suggested route');
+  $('#review-pill').textContent = ticket.review_required ? 'Hold for review' : (ticket.human_reviewed ? 'Human reviewed' : 'Suggested route');
   $('#probabilities').innerHTML = prediction.scores.slice(0, 3).map((row) => `<div class="probability"><span>${escapeText(state.labels[row.intent])}</span><progress max="1" value="${row.score}" aria-label="${escapeText(state.labels[row.intent])} model score"></progress><span>${percent(row.score)}</span></div>`).join('');
   $('#evidence').innerHTML = prediction.evidence.length ? prediction.evidence.map((item) => `<span>${escapeText(item)}</span>`).join('') : '<span>No recognised text features</span>';
   $('#intent').value = ticket.intent;

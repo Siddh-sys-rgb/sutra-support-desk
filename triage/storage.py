@@ -35,6 +35,7 @@ def initialize(path):
           subject TEXT NOT NULL, message TEXT NOT NULL, intent TEXT NOT NULL,
           priority TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open',
           assignee TEXT NOT NULL DEFAULT 'Unassigned', review_required INTEGER NOT NULL,
+          human_reviewed INTEGER NOT NULL DEFAULT 0,
           prediction TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1,
           request_key TEXT UNIQUE, request_hash TEXT NOT NULL,
           created_at TEXT NOT NULL, updated_at TEXT NOT NULL
@@ -45,11 +46,15 @@ def initialize(path):
         );
         CREATE INDEX IF NOT EXISTS ticket_created ON tickets(created_at);
         """)
+        columns = {row["name"] for row in db.execute("PRAGMA table_info(tickets)")}
+        if "human_reviewed" not in columns:
+            db.execute("ALTER TABLE tickets ADD COLUMN human_reviewed INTEGER NOT NULL DEFAULT 0")
 
 def unpack(row):
     result = dict(row)
     result["prediction"] = json.loads(result["prediction"])
     result["review_required"] = bool(result["review_required"])
+    result["human_reviewed"] = bool(result["human_reviewed"])
     result.pop("request_key", None)
     result.pop("request_hash", None)
     return result
@@ -81,11 +86,12 @@ def update(db, ticket_id, fields, revision):
         if fields["status"] not in TRANSITIONS[old["status"]]:
             raise Invalid("Start work before resolving an open ticket; reopen a resolved ticket before starting work.")
         reviewed = not old["review_required"] or fields["reviewed"]
+        human_reviewed = old["human_reviewed"] or fields["reviewed"]
         if fields["intent"] != old["intent"] and not fields["reviewed"]:
             raise Invalid("Confirm human review when correcting the routing intent.")
         if fields["reviewed"] and fields["intent"] == "unassigned":
             raise Invalid("Choose a routing intent before confirming human review.")
-        if fields["status"] == "resolved" and (not reviewed or fields["intent"] == "unassigned" or fields["assignee"] == "Unassigned"):
+        if fields["status"] == "resolved" and (not human_reviewed or fields["intent"] == "unassigned" or fields["assignee"] == "Unassigned"):
             raise Invalid("Resolution needs a reviewed routing intent and an assigned teammate.")
         changed = {key: {"before": old[key], "after": fields[key]} for key in ("intent", "priority", "status", "assignee") if old[key] != fields[key]}
         if fields["reviewed"]:
@@ -93,7 +99,7 @@ def update(db, ticket_id, fields, revision):
         if not changed:
             raise Invalid("No changes to save.")
         db.execute("""UPDATE tickets SET intent=?, priority=?, status=?, assignee=?,
-            review_required=?, revision=revision+1, updated_at=? WHERE id=?""", (fields["intent"], fields["priority"], fields["status"], fields["assignee"], int(not reviewed), now(), ticket_id))
+            review_required=?, human_reviewed=?, revision=revision+1, updated_at=? WHERE id=?""", (fields["intent"], fields["priority"], fields["status"], fields["assignee"], int(not reviewed), int(human_reviewed), now(), ticket_id))
         record(db, ticket_id, "reviewed" if fields["reviewed"] else "updated", changed)
         db.commit()
         return load(db, ticket_id)

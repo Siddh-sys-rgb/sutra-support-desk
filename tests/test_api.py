@@ -170,3 +170,12 @@ def test_demo_seed_once_and_persistent_secret(tmp_path, model):
 def test_unknown_edit_rolls_back(client, csrf, ticket):
     assert client.patch('/api/tickets/missing', json=edit(ticket, priority='high'), headers=csrf).status_code == 404
     assert client.patch('/api/tickets/' + ticket['id'], json=edit(ticket, priority='high'), headers=csrf).status_code == 200
+
+def test_confident_suggestion_still_requires_human_confirmation_before_resolution(client, csrf, ticket):
+    assert not ticket['review_required'] and not ticket['human_reviewed']
+    path = '/api/tickets/' + ticket['id']
+    item = client.patch(path, json=edit(ticket, status='in_progress', assignee='Meera Shah'), headers=csrf).get_json()['ticket']
+    assert client.patch(path, json=edit(item, status='resolved'), headers=csrf).status_code == 422
+    result = client.patch(path, json=edit(item, status='resolved', reviewed=True), headers=csrf)
+    assert result.status_code == 200
+    assert result.get_json()['ticket']['human_reviewed']

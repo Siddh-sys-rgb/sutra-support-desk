@@ -75,16 +75,15 @@ def split_csv(path, per_intent=60):
     clusters = DBSCAN(eps=0.14, min_samples=1, metric="cosine").fit_predict(matrix)
     train, test = [], []
     rng = random.Random(17)
-    for label in sorted(pools):
-        groups = sorted({int(cluster) for row, cluster in zip(selected, clusters) if row["intent"] == label})
-        if len(groups) < 2:
-            raise ValueError(f"Not enough independent text groups for {label}.")
-        rng.shuffle(groups)
-        held = set(groups[:max(1, len(groups) // 5)])
-        for index, (row, cluster) in enumerate(zip(selected, clusters)):
-            if row["intent"] == label:
-                result = {**row, "id": f"bitext-{index:04}", "group": int(cluster), "kind": "intent"}
-                (test if int(cluster) in held else train).append(result)
+    groups = sorted(set(int(cluster) for cluster in clusters))
+    rng.shuffle(groups)
+    held = set(groups[:max(1, len(groups) // 5)])
+    for index, (row, cluster) in enumerate(zip(selected, clusters)):
+        result = {**row, "id": f"bitext-{index:04}", "group": int(cluster), "kind": "intent"}
+        (test if int(cluster) in held else train).append(result)
+    for label in pools:
+        if not any(row["intent"] == label for row in train) or not any(row["intent"] == label for row in test):
+            raise ValueError(f"Not enough independent groups in both splits for {label}; use more rows.")
     return train, test
 
 def main():
