@@ -69,7 +69,7 @@ python scripts/evaluate.py --output instance/evaluation-original.json
 python -m pip check
 ```
 
-Local verification: **77 tests passed**, **98% statement coverage** across `triage/`, and `pip check` reported no broken requirements. Tests cover learned classification, abstention, related-ticket limits, CSRF/origin/host checks, unsafe input shapes, idempotent submissions, human correction, resolution prerequisites, stale revisions, concurrent writers, persistent secrets, dataset boundaries and train/test leakage checks. Browser verification and working screenshots are documented in [VALIDATION.md](docs/VALIDATION.md).
+Local verification: **77 tests passed**, **99% statement coverage** across `triage/`, and `pip check` reported no broken requirements. Tests cover learned classification, abstention, related-ticket limits, CSRF/origin/host checks, unsafe input shapes, idempotent submissions, human correction, resolution prerequisites, stale revisions, concurrent writers, persistent secrets, dataset boundaries and train/test leakage checks. Browser verification and working screenshots are documented in [VALIDATION.md](docs/VALIDATION.md).
 
 The default evaluation file is separate from training: 24 labelled synthetic messages, six out-of-domain checks and three deliberately mixed-intent messages. It is never read during model fitting.
 
