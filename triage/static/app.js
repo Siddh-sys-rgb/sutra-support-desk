@@ -186,6 +186,7 @@ async function start() {
     state.csrf = result.csrf;
     state.labels = result.intents;
     stats(result.stats);
+    $('#training-note').textContent = `Runs locally. No external AI service. ${result.model.training_examples} training examples · ${result.model.source}.`;
     $('#intent').innerHTML = '<option value="unassigned">Choose an intent…</option>' + Object.entries(result.intents).map(([value, label]) => `<option value="${value}">${escapeText(label)}</option>`).join('');
     $('#assignee').innerHTML = result.agents.map((agent) => `<option>${escapeText(agent)}</option>`).join('');
     await route();

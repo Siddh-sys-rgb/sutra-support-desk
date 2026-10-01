@@ -1,0 +1,1511 @@
+{
+  "summary": {
+    "model_version": "tfidf-logreg-6e0c1a6a90fd",
+    "training_examples": 72,
+    "labelled_examples": 24,
+    "top_intent_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "suggestion_coverage": 0.625,
+    "accepted_suggestion_accuracy": 1.0,
+    "held_for_review": 9,
+    "confusion_matrix_order": [
+      "delivery",
+      "refund",
+      "cancellation",
+      "payment",
+      "product",
+      "account"
+    ],
+    "confusion_matrix": [
+      [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ]
+    ],
+    "review_checks": {
+      "out_of_domain": {
+        "total": 6,
+        "held_for_review": 6
+      },
+      "ambiguous": {
+        "total": 3,
+        "held_for_review": 3
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "test-delivery-01",
+      "expected": "delivery",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "delivery",
+        "score": 0.5687,
+        "margin": 0.4704,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "delivery",
+            "score": 0.5687
+          },
+          {
+            "intent": "refund",
+            "score": 0.0983
+          },
+          {
+            "intent": "product",
+            "score": 0.0918
+          },
+          {
+            "intent": "account",
+            "score": 0.0864
+          },
+          {
+            "intent": "payment",
+            "score": 0.08
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0747
+          }
+        ],
+        "evidence": [
+          "parcel",
+          "courier"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-delivery-02",
+      "expected": "delivery",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "delivery",
+        "score": 0.5081,
+        "margin": 0.3756,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "delivery",
+            "score": 0.5081
+          },
+          {
+            "intent": "product",
+            "score": 0.1325
+          },
+          {
+            "intent": "payment",
+            "score": 0.1223
+          },
+          {
+            "intent": "account",
+            "score": 0.0895
+          },
+          {
+            "intent": "refund",
+            "score": 0.0746
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0731
+          }
+        ],
+        "evidence": [
+          "tracking",
+          "delivered"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-delivery-03",
+      "expected": "delivery",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "delivery",
+        "score": 0.4195,
+        "margin": 0.2883,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "delivery",
+            "score": 0.4195
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1312
+          },
+          {
+            "intent": "refund",
+            "score": 0.116
+          },
+          {
+            "intent": "product",
+            "score": 0.1155
+          },
+          {
+            "intent": "account",
+            "score": 0.1136
+          },
+          {
+            "intent": "payment",
+            "score": 0.1042
+          }
+        ],
+        "evidence": [
+          "shipping",
+          "shipping status",
+          "status"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-delivery-04",
+      "expected": "delivery",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "delivery",
+        "score": 0.7233,
+        "margin": 0.6601,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "delivery",
+            "score": 0.7233
+          },
+          {
+            "intent": "product",
+            "score": 0.0632
+          },
+          {
+            "intent": "account",
+            "score": 0.0604
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.058
+          },
+          {
+            "intent": "payment",
+            "score": 0.0541
+          },
+          {
+            "intent": "refund",
+            "score": 0.0409
+          }
+        ],
+        "evidence": [
+          "delivery",
+          "address",
+          "package",
+          "delivery address"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-refund-01",
+      "expected": "refund",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "refund",
+        "score": 0.7247,
+        "margin": 0.6398,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "refund",
+            "score": 0.7247
+          },
+          {
+            "intent": "payment",
+            "score": 0.0849
+          },
+          {
+            "intent": "product",
+            "score": 0.0533
+          },
+          {
+            "intent": "account",
+            "score": 0.0509
+          },
+          {
+            "intent": "delivery",
+            "score": 0.048
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0381
+          }
+        ],
+        "evidence": [
+          "returned",
+          "money"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-refund-02",
+      "expected": "refund",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "refund",
+        "score": 0.7139,
+        "margin": 0.6338,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "refund",
+            "score": 0.7139
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.08
+          },
+          {
+            "intent": "payment",
+            "score": 0.0655
+          },
+          {
+            "intent": "product",
+            "score": 0.0476
+          },
+          {
+            "intent": "account",
+            "score": 0.0466
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0463
+          }
+        ],
+        "evidence": [
+          "refund",
+          "pending"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-refund-03",
+      "expected": "refund",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "refund",
+        "score": 0.8725,
+        "margin": 0.8445,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "refund",
+            "score": 0.8725
+          },
+          {
+            "intent": "product",
+            "score": 0.028
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0273
+          },
+          {
+            "intent": "account",
+            "score": 0.0256
+          },
+          {
+            "intent": "payment",
+            "score": 0.0244
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0222
+          }
+        ],
+        "evidence": [
+          "refund",
+          "return",
+          "bank"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-refund-04",
+      "expected": "refund",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "refund",
+        "score": 0.3086,
+        "margin": 0.149,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "refund",
+            "score": 0.3086
+          },
+          {
+            "intent": "product",
+            "score": 0.1596
+          },
+          {
+            "intent": "account",
+            "score": 0.1453
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1357
+          },
+          {
+            "intent": "payment",
+            "score": 0.131
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1197
+          }
+        ],
+        "evidence": [
+          "refunded",
+          "check"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-cancellation-01",
+      "expected": "cancellation",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "cancellation",
+        "score": 0.9381,
+        "margin": 0.9211,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "cancellation",
+            "score": 0.9381
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0171
+          },
+          {
+            "intent": "refund",
+            "score": 0.0139
+          },
+          {
+            "intent": "payment",
+            "score": 0.0114
+          },
+          {
+            "intent": "account",
+            "score": 0.0103
+          },
+          {
+            "intent": "product",
+            "score": 0.0092
+          }
+        ],
+        "evidence": [
+          "cancel",
+          "order"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-cancellation-02",
+      "expected": "cancellation",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "cancellation",
+        "score": 0.6847,
+        "margin": 0.6067,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "cancellation",
+            "score": 0.6847
+          },
+          {
+            "intent": "payment",
+            "score": 0.078
+          },
+          {
+            "intent": "refund",
+            "score": 0.0614
+          },
+          {
+            "intent": "product",
+            "score": 0.0606
+          },
+          {
+            "intent": "account",
+            "score": 0.059
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0563
+          }
+        ],
+        "evidence": [
+          "cancel",
+          "purchase",
+          "stop"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-cancellation-03",
+      "expected": "cancellation",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "cancellation",
+        "score": 0.3342,
+        "margin": 0.1539,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "cancellation",
+            "score": 0.3342
+          },
+          {
+            "intent": "payment",
+            "score": 0.1804
+          },
+          {
+            "intent": "product",
+            "score": 0.1393
+          },
+          {
+            "intent": "account",
+            "score": 0.1268
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1213
+          },
+          {
+            "intent": "refund",
+            "score": 0.098
+          }
+        ],
+        "evidence": [
+          "cancellation"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-cancellation-04",
+      "expected": "cancellation",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "cancellation",
+        "score": 0.638,
+        "margin": 0.5532,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "cancellation",
+            "score": 0.638
+          },
+          {
+            "intent": "refund",
+            "score": 0.0848
+          },
+          {
+            "intent": "product",
+            "score": 0.0823
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0778
+          },
+          {
+            "intent": "payment",
+            "score": 0.0596
+          },
+          {
+            "intent": "account",
+            "score": 0.0574
+          }
+        ],
+        "evidence": [
+          "order",
+          "cancelled",
+          "want"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-payment-01",
+      "expected": "payment",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "payment",
+        "score": 0.6416,
+        "margin": 0.5574,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "payment",
+            "score": 0.6416
+          },
+          {
+            "intent": "product",
+            "score": 0.0842
+          },
+          {
+            "intent": "account",
+            "score": 0.0777
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0726
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0637
+          },
+          {
+            "intent": "refund",
+            "score": 0.0602
+          }
+        ],
+        "evidence": [
+          "checkout",
+          "upi",
+          "failed"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-payment-02",
+      "expected": "payment",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "payment",
+        "score": 0.6191,
+        "margin": 0.5314,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "payment",
+            "score": 0.6191
+          },
+          {
+            "intent": "product",
+            "score": 0.0877
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0804
+          },
+          {
+            "intent": "account",
+            "score": 0.0791
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0687
+          },
+          {
+            "intent": "refund",
+            "score": 0.065
+          }
+        ],
+        "evidence": [
+          "card",
+          "transaction"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-payment-03",
+      "expected": "payment",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "payment",
+        "score": 0.7055,
+        "margin": 0.6396,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "payment",
+            "score": 0.7055
+          },
+          {
+            "intent": "product",
+            "score": 0.0659
+          },
+          {
+            "intent": "account",
+            "score": 0.0606
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0604
+          },
+          {
+            "intent": "refund",
+            "score": 0.056
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0516
+          }
+        ],
+        "evidence": [
+          "payment",
+          "pay",
+          "gateway",
+          "payment gateway",
+          "error"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-payment-04",
+      "expected": "payment",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "payment",
+        "score": 0.7703,
+        "margin": 0.6817,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "payment",
+            "score": 0.7703
+          },
+          {
+            "intent": "refund",
+            "score": 0.0887
+          },
+          {
+            "intent": "product",
+            "score": 0.039
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0366
+          },
+          {
+            "intent": "account",
+            "score": 0.0349
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0305
+          }
+        ],
+        "evidence": [
+          "payment",
+          "transaction",
+          "money"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-product-01",
+      "expected": "product",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.3643,
+        "margin": 0.2229,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.3643
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1414
+          },
+          {
+            "intent": "account",
+            "score": 0.133
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1306
+          },
+          {
+            "intent": "payment",
+            "score": 0.1254
+          },
+          {
+            "intent": "refund",
+            "score": 0.1054
+          }
+        ],
+        "evidence": [
+          "work",
+          "need"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-product-02",
+      "expected": "product",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.6123,
+        "margin": 0.5129,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.6123
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0994
+          },
+          {
+            "intent": "delivery",
+            "score": 0.086
+          },
+          {
+            "intent": "account",
+            "score": 0.0734
+          },
+          {
+            "intent": "payment",
+            "score": 0.0691
+          },
+          {
+            "intent": "refund",
+            "score": 0.0599
+          }
+        ],
+        "evidence": [
+          "size",
+          "colour",
+          "shirt",
+          "box",
+          "wrong"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-product-03",
+      "expected": "product",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.5873,
+        "margin": 0.472,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.5873
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1153
+          },
+          {
+            "intent": "account",
+            "score": 0.0932
+          },
+          {
+            "intent": "refund",
+            "score": 0.075
+          },
+          {
+            "intent": "payment",
+            "score": 0.0677
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0615
+          }
+        ],
+        "evidence": [
+          "product",
+          "leaking",
+          "bottle",
+          "arrived"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-product-04",
+      "expected": "product",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.4675,
+        "margin": 0.3078,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.4675
+          },
+          {
+            "intent": "account",
+            "score": 0.1597
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1012
+          },
+          {
+            "intent": "payment",
+            "score": 0.0989
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0869
+          },
+          {
+            "intent": "refund",
+            "score": 0.0858
+          }
+        ],
+        "evidence": [
+          "exchange",
+          "charger",
+          "faulty"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-account-01",
+      "expected": "account",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "account",
+        "score": 0.4747,
+        "margin": 0.3433,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "account",
+            "score": 0.4747
+          },
+          {
+            "intent": "payment",
+            "score": 0.1314
+          },
+          {
+            "intent": "product",
+            "score": 0.1155
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1032
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0891
+          },
+          {
+            "intent": "refund",
+            "score": 0.0861
+          }
+        ],
+        "evidence": [
+          "password",
+          "invalid",
+          "invalid password"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-account-02",
+      "expected": "account",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "account",
+        "score": 0.6039,
+        "margin": 0.5118,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "account",
+            "score": 0.6039
+          },
+          {
+            "intent": "product",
+            "score": 0.0921
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0809
+          },
+          {
+            "intent": "payment",
+            "score": 0.0796
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0728
+          },
+          {
+            "intent": "refund",
+            "score": 0.0708
+          }
+        ],
+        "evidence": [
+          "login",
+          "otp"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-account-03",
+      "expected": "account",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "account",
+        "score": 0.8132,
+        "margin": 0.7715,
+        "review_required": false,
+        "reason": "Clear model suggestion",
+        "scores": [
+          {
+            "intent": "account",
+            "score": 0.8132
+          },
+          {
+            "intent": "product",
+            "score": 0.0416
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0415
+          },
+          {
+            "intent": "payment",
+            "score": 0.0361
+          },
+          {
+            "intent": "refund",
+            "score": 0.034
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0336
+          }
+        ],
+        "evidence": [
+          "account",
+          "password",
+          "reset",
+          "reset link",
+          "password reset"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "test-account-04",
+      "expected": "account",
+      "kind": "intent",
+      "prediction": {
+        "predicted_intent": "account",
+        "score": 0.437,
+        "margin": 0.2114,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "account",
+            "score": 0.437
+          },
+          {
+            "intent": "delivery",
+            "score": 0.2256
+          },
+          {
+            "intent": "product",
+            "score": 0.0987
+          },
+          {
+            "intent": "payment",
+            "score": 0.0823
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.0794
+          },
+          {
+            "intent": "refund",
+            "score": 0.0771
+          }
+        ],
+        "evidence": [
+          "profile",
+          "email",
+          "email address",
+          "address"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ood-01",
+      "expected": null,
+      "kind": "out_of_domain",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.1986,
+        "margin": 0.0194,
+        "review_required": true,
+        "reason": "No recognised training vocabulary",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.1986
+          },
+          {
+            "intent": "account",
+            "score": 0.1791
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1757
+          },
+          {
+            "intent": "payment",
+            "score": 0.1628
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1438
+          },
+          {
+            "intent": "refund",
+            "score": 0.14
+          }
+        ],
+        "evidence": [],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ood-02",
+      "expected": null,
+      "kind": "out_of_domain",
+      "prediction": {
+        "predicted_intent": "delivery",
+        "score": 0.306,
+        "margin": 0.1381,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "delivery",
+            "score": 0.306
+          },
+          {
+            "intent": "product",
+            "score": 0.1679
+          },
+          {
+            "intent": "account",
+            "score": 0.1524
+          },
+          {
+            "intent": "payment",
+            "score": 0.137
+          },
+          {
+            "intent": "refund",
+            "score": 0.1197
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1169
+          }
+        ],
+        "evidence": [
+          "tell"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ood-03",
+      "expected": null,
+      "kind": "out_of_domain",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.1986,
+        "margin": 0.0194,
+        "review_required": true,
+        "reason": "No recognised training vocabulary",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.1986
+          },
+          {
+            "intent": "account",
+            "score": 0.1791
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1757
+          },
+          {
+            "intent": "payment",
+            "score": 0.1628
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1438
+          },
+          {
+            "intent": "refund",
+            "score": 0.14
+          }
+        ],
+        "evidence": [],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ood-04",
+      "expected": null,
+      "kind": "out_of_domain",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.1986,
+        "margin": 0.0194,
+        "review_required": true,
+        "reason": "No recognised training vocabulary",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.1986
+          },
+          {
+            "intent": "account",
+            "score": 0.1791
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1757
+          },
+          {
+            "intent": "payment",
+            "score": 0.1628
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1438
+          },
+          {
+            "intent": "refund",
+            "score": 0.14
+          }
+        ],
+        "evidence": [],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ood-05",
+      "expected": null,
+      "kind": "out_of_domain",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.1986,
+        "margin": 0.0194,
+        "review_required": true,
+        "reason": "No recognised training vocabulary",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.1986
+          },
+          {
+            "intent": "account",
+            "score": 0.1791
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1757
+          },
+          {
+            "intent": "payment",
+            "score": 0.1628
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1438
+          },
+          {
+            "intent": "refund",
+            "score": 0.14
+          }
+        ],
+        "evidence": [],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ood-06",
+      "expected": null,
+      "kind": "out_of_domain",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.1986,
+        "margin": 0.0194,
+        "review_required": true,
+        "reason": "No recognised training vocabulary",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.1986
+          },
+          {
+            "intent": "account",
+            "score": 0.1791
+          },
+          {
+            "intent": "delivery",
+            "score": 0.1757
+          },
+          {
+            "intent": "payment",
+            "score": 0.1628
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1438
+          },
+          {
+            "intent": "refund",
+            "score": 0.14
+          }
+        ],
+        "evidence": [],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ambiguous-01",
+      "expected": null,
+      "kind": "ambiguous",
+      "prediction": {
+        "predicted_intent": "product",
+        "score": 0.4536,
+        "margin": 0.1644,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "product",
+            "score": 0.4536
+          },
+          {
+            "intent": "refund",
+            "score": 0.2892
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.09
+          },
+          {
+            "intent": "account",
+            "score": 0.0582
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0555
+          },
+          {
+            "intent": "payment",
+            "score": 0.0536
+          }
+        ],
+        "evidence": [
+          "broken",
+          "item",
+          "broken want",
+          "want"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ambiguous-02",
+      "expected": null,
+      "kind": "ambiguous",
+      "prediction": {
+        "predicted_intent": "cancellation",
+        "score": 0.5524,
+        "margin": 0.2844,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "cancellation",
+            "score": 0.5524
+          },
+          {
+            "intent": "payment",
+            "score": 0.2679
+          },
+          {
+            "intent": "delivery",
+            "score": 0.0514
+          },
+          {
+            "intent": "refund",
+            "score": 0.047
+          },
+          {
+            "intent": "account",
+            "score": 0.0417
+          },
+          {
+            "intent": "product",
+            "score": 0.0396
+          }
+        ],
+        "evidence": [
+          "cancel",
+          "order",
+          "cancel order"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    },
+    {
+      "id": "ambiguous-03",
+      "expected": null,
+      "kind": "ambiguous",
+      "prediction": {
+        "predicted_intent": "delivery",
+        "score": 0.2772,
+        "margin": 0.0279,
+        "review_required": true,
+        "reason": "Low model score",
+        "scores": [
+          {
+            "intent": "delivery",
+            "score": 0.2772
+          },
+          {
+            "intent": "refund",
+            "score": 0.2493
+          },
+          {
+            "intent": "product",
+            "score": 0.1296
+          },
+          {
+            "intent": "cancellation",
+            "score": 0.1262
+          },
+          {
+            "intent": "payment",
+            "score": 0.1262
+          },
+          {
+            "intent": "account",
+            "score": 0.0915
+          }
+        ],
+        "evidence": [
+          "parcel",
+          "did"
+        ],
+        "model_version": "tfidf-logreg-6e0c1a6a90fd"
+      }
+    }
+  ],
+  "caveat": "Synthetic evaluation only. Accuracy on these examples does not establish production performance or calibrated probabilities."
+}

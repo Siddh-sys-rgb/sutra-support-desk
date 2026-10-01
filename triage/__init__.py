@@ -65,7 +65,7 @@ def create_app(config=None):
             pass
         app.config["SECRET_KEY"] = key_path.read_text()
     storage.initialize(app.config["DATABASE"])
-    app.extensions["triage_model"] = app.config.get("MODEL") or TriageModel()
+    app.extensions["triage_model"] = app.config.get("MODEL") or TriageModel(app.config.get("TRAINING_DATA"))
 
     def db():
         if "db" not in g:
@@ -134,7 +134,7 @@ def create_app(config=None):
     def bootstrap():
         session.setdefault("csrf", secrets.token_hex(24))
         model = app.extensions["triage_model"]
-        return jsonify(csrf=session["csrf"], store="Aangan Online", agent="Kavya Joshi", intents=LABELS, agents=storage.AGENTS, stats=stats(), model={"version": model.version, "training_examples": model.training_size, "threshold": model.threshold, "margin_threshold": model.margin_threshold, "note": "Uncalibrated model scores, not guarantees. Original small English dataset."})
+        return jsonify(csrf=session["csrf"], store="Aangan Online", agent="Kavya Joshi", intents=LABELS, agents=storage.AGENTS, stats=stats(), model={"version": model.version, "training_examples": model.training_size, "threshold": model.threshold, "margin_threshold": model.margin_threshold, "source": model.source, "note": "Uncalibrated model scores, not guarantees. Check training provenance."})
 
     @app.get("/api/tickets")
     def tickets():
