@@ -179,3 +179,34 @@ def test_confident_suggestion_still_requires_human_confirmation_before_resolutio
     result = client.patch(path, json=edit(item, status='resolved', reviewed=True), headers=csrf)
     assert result.status_code == 200
     assert result.get_json()['ticket']['human_reviewed']
+
+def test_simultaneous_create_retries_share_one_ticket(tmp_path, model, ticket_body):
+    import threading
+    barrier = threading.Barrier(2)
+    class CoordinatedModel:
+        def __getattr__(self, key): return getattr(model, key)
+        def classify(self, value):
+            barrier.wait(timeout=5)
+            return model.classify(value)
+    app = create_app({'TESTING': True, 'DATA_DIR': str(tmp_path), 'SEED_DEMO': False, 'SECRET_KEY': 'concurrent-create-test', 'MODEL': CoordinatedModel()})
+    def submit():
+        with app.test_client() as client:
+            csrf = {'X-CSRF-Token': client.get('/api/bootstrap').get_json()['csrf']}
+            response = client.post('/api/tickets', json={**ticket_body, 'request_key': 'same-concurrent-request'}, headers=csrf)
+            return response.status_code, response.get_json()['ticket']['id']
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        results = list(pool.map(lambda _: submit(), range(2)))
+    assert sorted(status for status, _ in results) == [200, 201]
+    assert len({ticket_id for _, ticket_id in results}) == 1
+    with storage.connect(app.config['DATABASE']) as db:
+        assert db.execute('SELECT COUNT(*) FROM tickets').fetchone()[0] == 1
+        assert db.execute('SELECT COUNT(*) FROM events').fetchone()[0] == 1
+
+def test_older_local_schema_gets_human_review_column(tmp_path):
+    path = tmp_path / 'old.db'
+    storage.initialize(path)
+    with storage.connect(path) as db:
+        db.execute('ALTER TABLE tickets DROP COLUMN human_reviewed')
+    storage.initialize(path)
+    with storage.connect(path) as db:
+        assert 'human_reviewed' in {row['name'] for row in db.execute('PRAGMA table_info(tickets)')}
