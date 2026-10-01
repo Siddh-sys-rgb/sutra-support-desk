@@ -1,0 +1,114 @@
+{
+  "summary": {
+    "model_version": "tfidf-logreg-1aa236a75110",
+    "training_examples": 309,
+    "labelled_examples": 87,
+    "top_intent_accuracy": 0.9540229885057471,
+    "macro_f1": 0.9390694842307745,
+    "suggestion_coverage": 0.8505747126436781,
+    "accepted_suggestion_accuracy": 1.0,
+    "held_for_review": 13,
+    "confusion_matrix_order": [
+      "delivery",
+      "refund",
+      "cancellation",
+      "payment",
+      "product",
+      "account"
+    ],
+    "confusion_matrix": [
+      [
+        14,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        14,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        18,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        19
+      ]
+    ],
+    "review_checks": {
+      "out_of_domain": {
+        "total": 6,
+        "held_for_review": 6
+      },
+      "ambiguous": {
+        "total": 3,
+        "held_for_review": 2
+      }
+    }
+  },
+  "provenance": {
+    "source": "https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset",
+    "publisher": "Bitext Innovations, 2024",
+    "revision": "430d1a8",
+    "download_url": "https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset/resolve/430d1a8/Bitext_Sample_Customer_Support_Training_Dataset_27K_responses-v11.csv",
+    "sha256": "6f81102b0100b97b8468eb04368033a23206bf1fde9d53500d5806ec1001a434",
+    "retrieved_at": "2026-10-01T23:13:21.895531+00:00",
+    "license": "CDLA-Sharing-1.0",
+    "license_url": "https://cdla.dev/sharing-1-0/",
+    "modified": true,
+    "modifications": "Selected instruction/intent columns; mapped five labels; canonical deduplication; char n-gram near-duplicate clustering; group-disjoint split; supplemented original MIT product/examples.",
+    "mapping": {
+      "track_order": "delivery",
+      "delivery_period": "delivery",
+      "delivery_options": "delivery",
+      "change_shipping_address": "delivery",
+      "get_refund": "refund",
+      "track_refund": "refund",
+      "check_refund_policy": "refund",
+      "cancel_order": "cancellation",
+      "payment_issue": "payment",
+      "check_payment_methods": "payment",
+      "get_invoice": "payment",
+      "recover_password": "account",
+      "edit_account": "account",
+      "delete_account": "account",
+      "registration_problems": "account"
+    },
+    "public_train_rows": 237,
+    "public_test_rows": 63,
+    "limitations": "Hybrid synthetic data. Product training remains original. Near-duplicate grouping reduces but cannot eliminate shared templates or semantic leakage. Not an independent production benchmark."
+  },
+  "caveat": "Synthetic evaluation only. Accuracy on these examples does not establish production performance or calibrated probabilities.",
+  "data_included": false
+}

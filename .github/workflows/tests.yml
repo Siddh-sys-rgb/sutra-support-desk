@@ -1,0 +1,26 @@
+name: Offline model and workflow tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install tested dependencies
+        run: python -m pip install -r requirements-dev.txt -c constraints-tested.txt
+      - name: Check dependencies
+        run: python -m pip check
+      - name: Test local model and workflows
+        run: python -m pytest --cov=triage --cov-report=term-missing --cov-fail-under=90
+      - name: Evaluate original held-out examples offline
+        run: python scripts/evaluate.py
