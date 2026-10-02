@@ -16,4 +16,4 @@ The actual Flask server was exercised through the in-app browser:
 
 The screenshots are original JPEG captures of the running app, with fictional data: `overview.jpg`, `ticket-review.jpg` and `mobile.jpg`. Counts and timestamps reflect that local demo session; they need not match a fresh database exactly.
 
-Browser inspection is separate from the API/model/concurrency tests. It is not an exhaustive browser automation suite or a production accuracy/security assessment. Prepared remote CI has not run, and no GitHub account or remote operation was used.
+Browser inspection is separate from the API/model/concurrency tests. It is not an exhaustive browser automation suite or a production accuracy/security assessment. These initial local checks preceded publication. [GitHub Actions](https://github.com/Siddh-sys-rgb/sutra-support-desk/actions/workflows/tests.yml) now records the Linux matrix results.

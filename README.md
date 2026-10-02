@@ -1,5 +1,7 @@
 # Sutra — Support Ticket Triage Desk
 
+[![Tests](https://github.com/Siddh-sys-rgb/sutra-support-desk/actions/workflows/tests.yml/badge.svg)](https://github.com/Siddh-sys-rgb/sutra-support-desk/actions/workflows/tests.yml)
+
 A Flask support inbox for **Aangan Online**, a fictional Indian shop. A small learned model suggests a ticket intent, holds uncertain messages for human review, and surfaces similar conversations. Teammates can correct routing, assign work and resolve tickets with a revision-checked history.
 
 ![Sutra support inbox](docs/screenshots/overview.jpg)
@@ -11,6 +13,7 @@ A Flask support inbox for **Aangan Online**, a fictional Indian shop. A small le
 Use **Python 3.12**. This project was tested with Python 3.12.14 on Apple Silicon. Python, pip and a browser are the only system prerequisites; no database server or Node build is needed.
 
 ```sh
+git clone https://github.com/Siddh-sys-rgb/sutra-support-desk.git support-triage-desk
 cd support-triage-desk
 python3.12 -m venv .venv
 source .venv/bin/activate
@@ -83,7 +86,7 @@ The default evaluation file is separate from training: 24 labelled synthetic mes
 | Out-of-domain held | 6 / 6 |
 | Mixed-intent held | 3 / 3 |
 
-These numbers verify a small, authored acceptance set; they **do not establish general accuracy**. See [the full original report](docs/evaluation-original.json) and [evaluation notes](docs/EVALUATION.md). CI configuration is prepared locally in `.github/workflows/tests.yml`; remote CI has not been run.
+These numbers verify a small, authored acceptance set; they **do not establish general accuracy**. See [the full original report](docs/evaluation-original.json) and [evaluation notes](docs/EVALUATION.md). The GitHub Actions workflow checks Python 3.12 and 3.13 on Linux. See [current CI runs](https://github.com/Siddh-sys-rgb/sutra-support-desk/actions/workflows/tests.yml).
 
 ## Optional public-dataset experiment
 
